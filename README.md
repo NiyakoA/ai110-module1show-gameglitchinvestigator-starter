@@ -26,13 +26,17 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- Describe the game's purpose.
+The game is a number guessing game where players try to guess a secret number within a range, receiving hints on whether their guess is higher or lower, and earning scores based on attempts.
+- Detail which bugs you found.
+The main bugs were: inaccurate hints due to string conversion on even attempts, the hint button making the game unplayable when disabled, and the score not being prominently displayed.
+- Explain what fixes you applied.
+I removed the string conversion logic to ensure numerical comparison, eliminated the show_hints checkbox to always display hints, added a visible score display, and added a test case for string secret handling.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- [Screenshot of the fixed game running in Streamlit, showing accurate hints and visible score]
+- [Screenshot of pytest results showing all 5 tests passing]
 
 ## 🚀 Stretch Features
 

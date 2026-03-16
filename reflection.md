@@ -37,8 +37,11 @@ Yes, the AI helped design the new test case for string secret handling by sugges
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
+The secret number kept changing because in the original code, it was only set if not in session_state, but due to Streamlit reruns on every interaction, the session_state was not persisting properly, or perhaps the logic was resetting it. Actually, in the fixed code, it persists, but the bug was the string conversion affecting comparisons.
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+Streamlit reruns the entire script every time the user interacts with the app, like clicking a button, which can reset variables unless you use session_state to store data across reruns. Session state is like a persistent dictionary that survives reruns, allowing you to keep track of things like user inputs or game state.
 - What change did you make that finally gave the game a stable secret number?
+I removed the conditional string conversion of the secret, ensuring it always remains an integer stored in session_state, which prevents comparison issues and keeps it stable.
 
 ---
 
@@ -46,5 +49,8 @@ Yes, the AI helped design the new test case for string secret handling by sugges
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+I want to reuse the habit of adding targeted test cases for specific bugs to ensure fixes are robust and prevent regressions.
 - What is one thing you would do differently next time you work with AI on a coding task?
+Next time, I would verify AI suggestions more thoroughly by testing edge cases before fully implementing, rather than assuming the first suggestion is complete.
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+This project showed me that AI-generated code can have subtle bugs that require careful debugging, and that AI is a powerful tool for suggestions but human oversight is essential to ensure quality and correctness.
